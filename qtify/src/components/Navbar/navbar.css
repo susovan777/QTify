@@ -8,6 +8,11 @@
   padding: 0 32px;
 }
 
+.logoDiv {
+  display: flex;
+  margin: 14px;
+}
+
 .searchBox{
   width: 568px;
   display: flex;
