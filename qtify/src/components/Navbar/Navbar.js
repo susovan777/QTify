@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./navbar.module.css"
+import styles from "./navbar.module.css" // module-scoped CSS
 import MyLogo from "./Logo";
 import SearchIcon from "../../assets/search-icon.svg";
 import Button from "../Button/Button";

@@ -1,0 +1,20 @@
+.heroDiv {
+    background-color: #121212;
+    height: 270px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroTextDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    margin: 0;
+}
+
