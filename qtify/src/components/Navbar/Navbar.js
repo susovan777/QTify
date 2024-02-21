@@ -1,20 +1,20 @@
 import React from "react";
-import "./navbar.css";
+import styles from "./navbar.module.css"
 import MyLogo from "./Logo";
 import SearchIcon from "../../assets/search-icon.svg";
 import Button from "../Button/Button";
 
 export default function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className={styles.navbar}>
       <MyLogo />
-      <div className="searchBox">
+      <div className={styles.searchBox}>
         <input
           type="text"
-          className="textbox"
+          className={styles.textbox}
           placeholder="Search a song of your choice"
         />
-        <button className="searchbtn"><img src={SearchIcon} width={20} alt="Search Icon" /></button>
+        <button className={styles.searchbtn}><img src={SearchIcon} width={20} alt="Search Icon" /></button>
       </div>
       <Button value={"Give Feedback"} />
     </nav>

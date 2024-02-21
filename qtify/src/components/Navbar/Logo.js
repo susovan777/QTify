@@ -1,11 +1,11 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
-import "./navbar.css"
+import styles from "./navbar.module.css"
 
 
 const MyLogo = () => {
   return (
-    <div className="logoDiv">
+    <div className={styles.logoDiv}>
       <img src={Logo} alt="QTify Logo" width={70} />
     </div>
   );
