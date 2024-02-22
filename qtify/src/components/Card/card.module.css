@@ -1,0 +1,11 @@
+
+.albumSection {
+    background-color: #121212;
+    padding: 15px;
+}
+
+.cardDiv {
+    margin: 10px;
+    height: 205px;
+    border-radius: 10px;
+}
