@@ -1,20 +1,16 @@
 import React from "react";
-import { Card, CardActionArea } from "@mui/material";
+import { Box, Card, CardActionArea, Stack } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-// import { CardActionArea } from '@mui/material';
 import Chip from "@mui/material/Chip";
 import Album from "../../assets/album1.png";
 import styles from "./card.module.css";
 
 function AlbumCard() {
   return (
-    <div className={styles.albumSection}>
-      <Typography variant="h6" color="white">
-        Top Album
-      </Typography>
-      <Card sx={{ maxWidth: 159 }} className={styles.cardDiv}>
+    <Box className={styles.cardDiv}>
+      <Card>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -23,26 +19,36 @@ function AlbumCard() {
             alt="green iguana"
           />
           <CardContent sx={{ padding: "5px" }}>
-            {/* <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography> */}
             <Chip
               size="small"
-              label="100 follows"
+              label="100 Follows"
               sx={{ bgcolor: "black", color: "white" }}
             />
           </CardContent>
         </CardActionArea>
       </Card>
-        <Typography variant="h6" color="white">
+      <Box className={styles.title}>
+        <Typography variant="p" component="p" color="white">
           New Bollywood Songs
         </Typography>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
-export default AlbumCard;
+function AlbumGrid() {
+  return (
+    <Box className={styles.albumSection}>
+      <Typography variant="h6" color="white">
+        Top Albums
+      </Typography>
+      <Stack direction="row" spacing={2} sx={{padding: "15px"}}>
+        <AlbumCard />
+        <AlbumCard />
+        <AlbumCard />
+      </Stack>
+    </Box>
+  );
+}
+
+export default AlbumGrid;
