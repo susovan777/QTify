@@ -1,16 +1,23 @@
-import React from "react";
 import axios from "axios";
 
-function GetData() {
+const BACKEND_ENDPOINT = "https://qtify-backend-labs.crio.do";
 
-    const apiData = async () => {
-        const response = await axios.get(`https://qtify-backend-labs.crio.do/albums/top`);
-        console.log(response.data);
-    }
+export const fetchTopAlbums = async () => {
+  try {
+    const response = await axios.get(`${BACKEND_ENDPOINT}/albums/top`);
+    console.log(response.data);
+    return response.data;
+  } catch (err) {
+    return err;
+  }
+};
 
-    apiData();
-
-    return apiData;
-}
-
-export default GetData;
+// export const fetchNewAlbums = async () => {
+//     try {
+//         const response = await axios.get(`${BACKEND_ENDPOINT}/albums/new`);
+//         console.log(response.data);
+//         return response.data;
+//       } catch (err) {
+//         return err;
+//       }
+// }
