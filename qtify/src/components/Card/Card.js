@@ -10,7 +10,7 @@ import styles from "./card.module.css";
 function AlbumCard() {
   return (
     <Box className={styles.cardDiv}>
-      <Card>
+      <Card sx={{borderRadius: "10px"}}>
         <CardActionArea>
           <CardMedia
             component="img"

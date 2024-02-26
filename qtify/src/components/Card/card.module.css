@@ -7,11 +7,8 @@
 }
 
 .cardDiv {
-    margin: 10px;
-    /* height: 205px; */
     height: 232px;
     width: 160px;
-    border-radius: 10px;
 }
 
 .title {
