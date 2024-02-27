@@ -10,7 +10,7 @@ import styles from "./card.module.css";
 function AlbumCard() {
   return (
     <Box className={styles.cardDiv}>
-      <Card sx={{borderRadius: "10px"}}>
+      <Card sx={{ borderRadius: "10px" }}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -42,7 +42,7 @@ function AlbumGrid() {
       <Typography variant="h6" color="white">
         Top Albums
       </Typography>
-      <Stack direction="row" spacing={2} sx={{padding: "15px"}}>
+      <Stack direction="row" spacing={2} sx={{ padding: "15px" }}>
         <AlbumCard />
         <AlbumCard />
         <AlbumCard />
@@ -51,4 +51,25 @@ function AlbumGrid() {
   );
 }
 
-export default AlbumGrid;
+export default function Card({ data, type }) {
+  const getCard = (type) => {
+    switch (type) {
+      case "album": {
+        const { image, follows, title, slug, songs } = data;
+
+        return <div></div>;
+      }
+
+      case "song": {
+        const { image, likes, title } = data;
+
+        return <div></div>;
+      }
+
+      default:
+        <></>;
+    }
+  };
+
+  return getCard(type);
+}
