@@ -1,10 +1,10 @@
 import React from "react";
-import { Box, Card, CardActionArea, Stack, Tooltip } from "@mui/material";
+import { Box, Card, CardActionArea, Tooltip } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
-import Album from "../../assets/album1.png";
+// import { Link } from "react-router-dom";
+// import Album from "../../assets/album1.png";
 import styles from "./card.module.css";
 
 // function AlbumCard() {
@@ -55,7 +55,7 @@ export default function MainCard({ data, type }) {
   const getCard = (type) => {
     switch (type) {
       case "album": {
-        const { image, follows, title, slug, songs } = data;
+        const { image, follows, title, songs } = data;
 
         return (
           <div>
@@ -66,8 +66,8 @@ export default function MainCard({ data, type }) {
                     <CardMedia
                       component="img"
                       height="170"
-                      image={Album}
-                      alt="green iguana"
+                      image={image}
+                      alt="album"
                     />
                     <CardContent sx={{ padding: "5px" }}>
                       <Chip
@@ -79,9 +79,7 @@ export default function MainCard({ data, type }) {
                   </CardActionArea>
                 </Card>
                 <Box className={styles.title}>
-                  <Typography variant="p" component="p" color="white">
-                    <p>{title}</p>
-                  </Typography>
+                  <p>{title}</p>
                 </Box>
               </Box>
             </Tooltip>
@@ -93,9 +91,28 @@ export default function MainCard({ data, type }) {
         const { image, likes, title } = data;
 
         return (
-          <div>
-            
-          </div>
+          <Box className={styles.cardDiv}>
+            <Card sx={{ borderRadius: "10px" }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="170"
+                  image={image}
+                  alt="song"
+                />
+                <CardContent sx={{ padding: "5px" }}>
+                  <Chip
+                    size="small"
+                    label={`${likes} likes`}
+                    sx={{ bgcolor: "black", color: "white" }}
+                  />
+                </CardContent>
+              </CardActionArea>
+            </Card>
+            <Box className={styles.title}>
+              <p>{title}</p>
+            </Box>
+          </Box>
         );
       }
 
