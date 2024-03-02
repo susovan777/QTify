@@ -51,7 +51,7 @@ import styles from "./card.module.css";
 //   );
 // }
 
-export default function MainCard({ data, type }) {
+export const MainCard = ({ data, type }) => {
   const getCard = (type) => {
     switch (type) {
       case "album": {
@@ -122,4 +122,6 @@ export default function MainCard({ data, type }) {
   };
 
   return getCard(type);
-}
+};
+
+export default MainCard;

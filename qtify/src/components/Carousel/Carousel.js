@@ -1,44 +1,39 @@
-import React, { useEffect } from 'react'
-import style from './Carousel.module.css'
+import React, { useEffect } from "react";
+import style from "./carousel.module.css";
 // import Swiper from 'swiper';
-import {SwiperSlide,Swiper , useSwiper} from 'swiper/react';
-import { Navigation} from 'swiper/modules';
-import CarouselLeftNavigation from './CarouselLeftNavigation';
-import CarouselRightNavigation from './CarouselRightNavigation';
-import 'swiper/css';
+import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import CarouselLeftNavigation from "./LeftCarousel";
+import CarouselRightNavigation from "./RightCarousel";
+import "swiper/css";
 
+const Controls = ({ data }) => {
+  const swiper = useSwiper();
+  useEffect(() => {
+    swiper.slideTo(0, 0);
+  }, [data]);
 
-const Controls = ({data})=>{
-    const swiper = useSwiper();
-    useEffect(()=>{
-      swiper.slideTo(0 , 0);
-    },[data ]);
-    return <></>
+  return <></>;
+};
 
-}
-
-export const Carousel = ({data , renderComponent}) => {
+export const Carousel = ({ data, renderComponent }) => {
   return (
     <div className={style.wrapper}>
-         <Swiper
-         style={{padding : '0px 20px'}}
-         initialSlide={0}
-         slidesPerView='auto'
-         allowTouchMove 
-         modules={[Navigation]}
-         spaceBetween={40}
-         >
-         <Controls/>
-         <CarouselLeftNavigation/>
-         <CarouselRightNavigation/>
-         {
-            data.map((ele)=>{
-                return (
-                    <SwiperSlide>{renderComponent(ele)}</SwiperSlide>
-                )
-            })
-         }
-         </Swiper>
+      <Swiper
+        style={{ padding: "0px 20px" }}
+        initialSlide={0}
+        slidesPerView="auto"
+        allowTouchMove
+        modules={[Navigation]}
+        spaceBetween={40}
+      >
+        <Controls />
+        <CarouselLeftNavigation />
+        <CarouselRightNavigation />
+        {data.map((ele) => {
+          return <SwiperSlide>{renderComponent(ele)}</SwiperSlide>;
+        })}
+      </Swiper>
     </div>
-  )
-}
+  );
+};

@@ -2,10 +2,11 @@ import { Box, CircularProgress } from "@mui/material";
 import React, { useState } from "react";
 import styles from "./section.module.css";
 import MainCard from "../Card/Card";
+import { Carousel } from "../Carousel/Carousel";
 
 const Section = ({ title, data, filterSource, type }) => {
   const [carouselToggle, setCarouselToggle] = useState(true);
-  const [filters, setFilters] = useState([{ key: "all", label: "all" }]);
+  // const [filters, setFilters] = useState([{ key: "all", label: "all" }]);
 
   const handleToggle = () => {
     setCarouselToggle((prevState) => !prevState);
@@ -39,10 +40,14 @@ const Section = ({ title, data, filterSource, type }) => {
               ))}
             </div>
           ) : (
-            ""
+            <Carousel
+              data={data}
+              renderComponent={(data) => <MainCard data={data} type={type} />}
+            />
           )}
         </div>
       )}
+
     </div>
   );
 };

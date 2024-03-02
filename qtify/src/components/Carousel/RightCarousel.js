@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSwiper } from "swiper/react";
 // import rightIcon from '../../assets/right.png'
-import { ReactComponent as RightIcon } from "../../assets/rightarrow.svg";
-import style from "./Carousel.module.css";
+import { ReactComponent as RightIcon } from "../../assets/RightArrow.svg";
+import style from "./carousel.module.css";
 
 const CarouselRightNavigation = () => {
   const swiper = useSwiper();

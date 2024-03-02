@@ -30,13 +30,17 @@ function App() {
     generateFetchedData("songs", fetchSongs);
   }, []);
 
-  const { topAlbums = [], newAlbums = [], songs = [] } = data;
+  const { topAlbums, newAlbums, songs } = data;
+  // console.log(topAlbums);
+  // console.log(newAlbums);
+  // console.log(songs);
+  // console.log(data);
 
   return (
     <div className="App">
       <Navbar />
       <Hero />
-      <div>
+      <div className="sectionWrapper">
         <Section title="Top Albums" data={topAlbums} type="album" />
         <Section title="New Albums" data={newAlbums} type="album" />
         <Section title="Songs" data={songs} type="song" />
