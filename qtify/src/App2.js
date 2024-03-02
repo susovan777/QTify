@@ -6,7 +6,7 @@ import { fetchNewAlbum, fetchSong, fetchTopAlbums } from "./components/api/api";
 import Section from "./components/Section/Section";
 // import style from "./App.module.css";
 
-function App() {
+function App2() {
   const [topAlbumData, setTopAlbumData] = useState([]);
   const [newAlbumData, setNewAlbumData] = useState([]);
   const [songData, setSongData] = useState([]);
@@ -117,4 +117,4 @@ function App() {
   );
 }
 
-export default App;
+export default App2;
