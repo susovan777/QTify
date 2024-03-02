@@ -1,27 +1,39 @@
-import { Box, CircularProgress } from "@mui/material";
 import React, { useState } from "react";
-import styles from "./section.module.css";
-import MainCard from "../Card/Card";
+import style from "./Section.module.css";
+import { Box, CircularProgress } from "@mui/material";
+import Card from "../Card/Card";
 import { Carousel } from "../Carousel/Carousel";
+import BasicTabs from "../Tab/Tab";
 
-const Section = ({ title, data, filterSource, type }) => {
-  const [carouselToggle, setCarouselToggle] = useState(true);
-  // const [filters, setFilters] = useState([{ key: "all", label: "all" }]);
+const Section = ({
+  data,
+  title,
+  type,
+  filteredData = null,
+  filteredDataValues = [],
+  value = 0,
+  handleChange = null,
+}) => {
+  const [carouselToggel, setCarouselToggel] = useState(true);
 
   const handleToggle = () => {
-    setCarouselToggle((prevState) => !prevState);
+    setCarouselToggel(!carouselToggel);
   };
 
   return (
-    <div className={styles.main}>
-      <div className={styles.header}>
+    <div>
+      <div className={style.headerText}>
         <h3>{title}</h3>
-        <h4 className={styles.toggleText} onClick={handleToggle}>
-          {!carouselToggle ? "Collapse all" : "Show all"}
+        <h4 className={style.toggleText} onClick={handleToggle}>
+          {carouselToggel ? "Show All" : "Collapse All"}
         </h4>
       </div>
-
-      {data.length === 0 ? (
+      {type === "song" ? (
+        <BasicTabs value={value} handleChange={handleChange} />
+      ) : (
+        <></>
+      )}
+      {filteredDataValues.length === 0 ? (
         <Box
           sx={{
             display: "flex",
@@ -32,22 +44,21 @@ const Section = ({ title, data, filterSource, type }) => {
           <CircularProgress />
         </Box>
       ) : (
-        <div className={styles.cardWrapper}>
-          {!carouselToggle ? (
-            <div className={styles.wrapper}>
-              {data.map((ele) => (
-                <MainCard data={ele} type={type} key={ele.id} />
+        <div className={style.cardWrapper}>
+          {!carouselToggel ? (
+            <div className={style.wrapper}>
+              {filteredDataValues.map((ele) => (
+                <Card data={ele} type={type} key={ele.id} />
               ))}
             </div>
           ) : (
             <Carousel
-              data={data}
-              renderComponent={(data) => <MainCard data={data} type={type} />}
+              data={filteredDataValues}
+              renderComponent={(data) => <Card data={data} type={type} />}
             />
           )}
         </div>
       )}
-
     </div>
   );
 };

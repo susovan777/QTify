@@ -1,13 +1,8 @@
-.btn {
-  height: 47px;
-  width: 170px;
-  border: 1px solid;
+.button{
+  background-color: var(--color-black);
+  color: var(--color-primary);
   border-radius: 12px;
-  background-color: #121212;
-  color: #34c94b;
   padding: 10px 16px;
   cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 15px;
+  font-family: Poppins;
 }

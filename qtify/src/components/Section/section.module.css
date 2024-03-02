@@ -1,23 +1,24 @@
-.main {
-    padding: 0 16px;
-}
-
-.header {
+.headerText{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 12px;
 }
 
-.toggleText {
-    color: #34C94B;
+.toggleText{
+    font-size: 20px;
+    font-weight: 600;
+    color:var(--color-primary);
     cursor: pointer;
 }
 
-.cardWrapper {
+.cardWrapper{
     margin-top: 18px;
 }
 
-.wrapper {
+.wrapper{
     display: flex;
-    gap: 40px;
     flex-wrap: wrap;
+    gap:40px;
+    /* row-gap: 25px; */
+    /* margin-top: 12px; */
 }
