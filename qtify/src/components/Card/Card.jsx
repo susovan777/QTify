@@ -17,7 +17,7 @@ export const Card = ({ data, type }) => {
                   <Chip
                     label={`${follows} Follows`}
                     size="small"
-                    className={style.chip}
+                    sx={{ bgcolor: "black", color: "white" }}
                   />
                 </div>
               </div>
@@ -35,9 +35,11 @@ export const Card = ({ data, type }) => {
             <div className={style.card}>
               <img src={image} alt="song" />
               <div className={style.banner}>
-                <div className={style.pill}>
-                  <p>{likes} Likes</p>
-                </div>
+                <Chip
+                  label={`${likes} Likes`}
+                  size="small"
+                  sx={{ bgcolor: "black", color: "white" }}
+                />
               </div>
             </div>
             <div className={style.titleWraper}>
@@ -51,24 +53,6 @@ export const Card = ({ data, type }) => {
     }
   };
   return getCard(type);
-
-  // const {image , follows , title , songs } = data;
-
-  // return (
-  //     <Tooltip title={`${songs.length} songs`} placement='top' arrow>
-  //         <div className={style.wraper}>
-  //             <div className={style.card}>
-  //                 <img src={image} alt="album" />
-  //                <div className={style.banner}>
-  //                   <Chip label={`${follows} Follows`} size='small' className={style.chip} />
-  //                </div>
-  //             </div>
-  //             <div className={style.titleWraper}>
-  //                 <p>{title}</p>
-  //             </div>
-  //         </div>
-  //     </Tooltip>
-  // )
 };
 
 export default Card;
