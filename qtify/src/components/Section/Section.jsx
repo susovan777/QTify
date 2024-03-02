@@ -21,7 +21,7 @@ const Section = ({
   };
 
   return (
-    <div>
+    <div className={style.main}>
       <div className={style.headerText}>
         <h3>{title}</h3>
         <h4 className={style.toggleText} onClick={handleToggle}>
