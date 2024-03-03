@@ -4,9 +4,9 @@ import { Hero } from "./components/Hero/Hero";
 import { useEffect, useState } from "react";
 import { fetchNewAlbum, fetchSong, fetchTopAlbums } from "./components/api/api";
 import Section from "./components/Section/Section";
-import style from "./App.module.css";
+// import style from "./App.module.css";
 
-function App() {
+function App2() {
   const [topAlbumData, setTopAlbumData] = useState([]);
   const [newAlbumData, setNewAlbumData] = useState([]);
   const [songData, setSongData] = useState([]);
@@ -45,7 +45,7 @@ function App() {
     try {
       const data = await fetchTopAlbums();
       setTopAlbumData(data);
-      // console.log(data);
+      console.log(data);
     } catch (error) {
       console.error("error:", error);
     }
@@ -55,7 +55,7 @@ function App() {
     try {
       const data = await fetchNewAlbum();
       setNewAlbumData(data);
-      // console.log(data);
+      console.log(data);
     } catch (err) {
       console.error("error:", err);
     }
@@ -66,7 +66,7 @@ function App() {
       const data = await fetchSong();
       setSongData(data);
       setFilteredDataValues(data);
-      // console.log(data);
+      console.log(data);
     } catch (error) {
       console.error("error:", error);
     }
@@ -91,7 +91,7 @@ function App() {
           <Card data={topAlbum} type='album' key={topAlbum.id}/>
         ))
       } */}
-      <div className={style.sectionWrapper}>
+      <div className="sectionWraper">
         <Section
           filteredDataValues={topAlbumData}
           title="Top Album"
@@ -117,4 +117,4 @@ function App() {
   );
 }
 
-export default App;
+export default App2;
