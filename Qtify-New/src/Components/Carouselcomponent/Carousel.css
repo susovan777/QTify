@@ -1,0 +1,19 @@
+.carousel-container {
+    position: relative;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 45%;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+  
+  .arrow-left {
+    left: -15px;
+  }
+  .arrow-right {
+    right: 0;
+  }
