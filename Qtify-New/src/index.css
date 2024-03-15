@@ -1,11 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 :root {
   --css-primary: #34c94b;
-  --css-black : #121212;
-  --css-white : #fff;
+  --css-black: #121212;
+  --css-white: #fff;
 }
 
 /* Reset some default browser styles */
-html, body, h1, h2, h3, p, ul, ol, li, dl, dt, dd, blockquote, figure, fieldset, legend {
+html,
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend {
   margin: 0;
   padding: 0;
   background: var(--css-black);
@@ -14,7 +31,8 @@ html, body, h1, h2, h3, p, ul, ol, li, dl, dt, dd, blockquote, figure, fieldset,
 }
 
 /* Remove default list styles */
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -37,6 +55,8 @@ a {
 }
 
 /* Apply a basic box-sizing to all elements for consistent sizing */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }

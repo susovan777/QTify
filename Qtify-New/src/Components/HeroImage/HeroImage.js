@@ -1,15 +1,15 @@
-import "./HeroImage.css";
-// import Logo1 from "../../Images/Logo1";
 import React from "react";
+import styles from "./hero.module.css";
+import hp from "../../Images/hero_headphones.png";
 
 function HeroImage() {
   return (
-    <div className="Heroalign">
-      <div className="Textcolor">
-        <h1>100 Thousand Songs,ad-free</h1>
-        <h1>Over thousands podcast episodes</h1>
+    <div className={styles.heroDiv}>
+      <div className={styles.heroTextDiv}>
+        <h2>100 Thousand Songs, ad-free</h2>
+        <h2>Over thousands podcast episodes</h2>
       </div>
-      <div>{/* <Logo1 /> */}</div>
+      <img src={hp} alt="Headphone" width={212} height={212} />
     </div>
   );
 }
