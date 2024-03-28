@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import { Virtual, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Card from "../Cardcomponent/Card";
+import MainCard from "../Cardcomponent/Card";
 import "./Carousel.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const Carousel = ({ data, swiperId }) => {
+const Carousel = ({ data, type, swiperId }) => {
   const swiperRef = useRef(null);
 
   const handlePrev = () => {
@@ -35,13 +35,9 @@ const Carousel = ({ data, swiperId }) => {
         virtual
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {data.map((value) => (
-          <SwiperSlide key={value.id}>
-            <Card
-              title={value.title}
-              follows={value.follows}
-              image={value.image}
-            />
+        {data.map((ele) => (
+          <SwiperSlide key={ele.id}>
+            <MainCard data={ele} type={type} key={ele.id} />
           </SwiperSlide>
         ))}
       </Swiper>
