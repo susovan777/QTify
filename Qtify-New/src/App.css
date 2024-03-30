@@ -1,0 +1,37 @@
+:root {
+  --color-primary: #34c94b;
+  --color-black: #121212;
+  --color-white: #ffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  /* font-family: "popins", sans-serif; */
+  line-height: 1.5;
+  background-color: var(--color-black);
+  overflow-x: hidden;
+  color: var(--color-white);
+}
+
+.swiper-slide {
+  width: auto !important;
+}
+
+/* Copied from app.module.css */
+.sectionWrapper {
+  padding: 0 30px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+

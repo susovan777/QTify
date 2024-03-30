@@ -1,36 +1,83 @@
 import HeroImage from "./Components/HeroImage/HeroImage";
 import Navbar from "./Components/Navbarcomponent/Navbar";
 import Section from "./Components/Sectioncomponent/Section";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
+import {
+  fetchNewAlbums,
+  fetchSongs,
+  fetchTopAlbums,
+} from "./Components/API/api";
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  const [topAlbums, setTopAlbums] = useState([]);
-  const [newAlbums, setNewAlbums] = useState([]);
+  const [data, setData] = useState({});
+  const [value, setValue] = useState(0);
+  // const [songData, setSongData] = useState([]);
+  // const [filteredDataValues, setFilteredDataValues] = useState([]);
 
-  const functionTopApi = async () => {
-    let URL = "https://qtify-backend-labs.crio.do/albums/top";
-    let response = await axios.get(URL);
-    setTopAlbums(response.data);
+  const handleChange = (Event, newValue) => {
+    // console.log(newValue);
+    setValue(newValue);
   };
 
-  const functionNewApi = async () => {
-    let URL = "https://qtify-backend-labs.crio.do/albums/new";
-    let response = await axios.get(URL);
-    setNewAlbums(response.data);
+  // const generateSongData = (value) => {
+  //   let key;
+  //   if (value === 0) {
+  //     filteredData(songData);
+  //     return;
+  //   } else if (value === 1) {
+  //     key = "rock";
+  //   } else if (value === 2) {
+  //     key = "pop";
+  //   }
+  //   const res = songData.filter((item) => item.genre.key === key);
+  //   filteredData(res);
+  // };
+
+  // useEffect(() => {
+  //   generateSongData(value);
+  // }, [value]);
+
+  // const filteredData = (value) => {
+  //   setFilteredDataValues(value);
+  // };
+
+  const generateFetchedData = async (key, source) => {
+    try {
+      const data = await source();
+      setData((prevState) => {
+        return { ...prevState, [key]: data };
+      });
+      // console.log(key, data);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   useEffect(() => {
-    functionTopApi();
-    functionNewApi();
+    generateFetchedData("topAlbums", fetchTopAlbums);
+    generateFetchedData("newAlbums", fetchNewAlbums);
+    generateFetchedData("songs", fetchSongs);
   }, []);
+
+  const { topAlbums, newAlbums, songs } = data;
+
   return (
     <div>
       <Navbar />
       <HeroImage />
-      <Section text="Top Albums" data={topAlbums} />
-      <Section text="New Albums" data={newAlbums} />
+      <div className="sectionWrapper">
+        <Section title="Top Albums" data={topAlbums} type="album" />
+        <Section title="New Albums" data={newAlbums} type="album" />
+        <Section
+          title="Songs"
+          data={songs}
+          type="song"
+          value={value}
+          // filteredDataValues={filteredDataValues}
+          handleChange={handleChange}
+        />
+      </div>
     </div>
   );
 }

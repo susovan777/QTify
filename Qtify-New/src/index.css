@@ -45,7 +45,7 @@ html {
 /* Ensure images are not scaled beyond their natural size */
 img {
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
 }
 
 /* Remove underline from links and make them blue by default */
