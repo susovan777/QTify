@@ -1,42 +1,125 @@
-import React from 'react'
-import './Card.css'
-// import Logo2 from '../../Images/Logo2'
+import React from "react";
+import { Box, Card, CardActionArea, Tooltip } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Chip from "@mui/material/Chip";
+import styles from "./card.module.css";
 
-// function Card() {
+// function AlbumCard() {
 //   return (
-//     <div className='Card' style={{backgroundColor:"white"}}>
-//         {/* <Logo2 /> */}
-        
-//         <div className="Card-main">
-//           <div className="Card-main-top">
-//           <Logo2 />
-//           </div>
-//           <div className="Card-main-bottom">
-// <span>100followers</span>
-//           </div>
-        
-//         </div>
-//       <div className='Card-bottom'>
-//         <span>NewBollywoodsongs</span>
-        
-//       </div>
-//     </div>
-//   )
+//     <Box className={styles.cardDiv}>
+//       <Card sx={{ borderRadius: "10px" }}>
+//         <CardActionArea>
+//           <CardMedia
+//             component="img"
+//             height="170"
+//             image={Album}
+//             alt="green iguana"
+//           />
+//           <CardContent sx={{ padding: "5px" }}>
+//             <Chip
+//               size="small"
+//               label="100 Follows"
+//               sx={{ bgcolor: "black", color: "white" }}
+//             />
+//           </CardContent>
+//         </CardActionArea>
+//       </Card>
+//       <Box className={styles.title}>
+//         <Typography variant="p" component="p" color="white">
+//           New Bollywood Songs
+//         </Typography>
+//       </Box>
+//     </Box>
+//   );
 // }
-const Card = ({follows,title,image}) => {
-  return (
-   <div >
-      <div className='card'>
-        <img src={image} />
-         <div className='followers'>
-          <span className='text'>{follows} Follows </span>
-        </div>
-        </div>
 
-        <p className='catagory'> {title} </p>
-      </div>
-      
-  )
-}
+// function AlbumGrid() {
+//   return (
+//     <Box className={styles.albumSection}>
+//       <Typography variant="h6" color="white">
+//         Top Albums
+//       </Typography>
+//       <Stack direction="row" spacing={2} sx={{ padding: "15px" }}>
+//         <AlbumCard />
+//         <AlbumCard />
+//         <AlbumCard />
+//       </Stack>
+//     </Box>
+//   );
+// }
 
-export default Card
+export const MainCard = ({ data, type }) => {
+  const getCard = (type) => {
+    switch (type) {
+      case "album": {
+        const { image, follows, title, songs } = data;
+
+        return (
+          <div>
+            <Tooltip title={`${songs.length} ss`} placement="top" arrow>
+              <Box className={styles.cardDiv}>
+                <Card sx={{ borderRadius: "10px" }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="170"
+                      image={image}
+                      alt="album"
+                    />
+                    <CardContent sx={{ padding: "5px" }}>
+                      <Chip
+                        size="small"
+                        label={`${follows} follows`}
+                        sx={{ bgcolor: "black", color: "white" }}
+                      />
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+                <Box className={styles.title}>
+                  <p>{title}</p>
+                </Box>
+              </Box>
+            </Tooltip>
+          </div>
+        );
+      }
+
+      case "song": {
+        const { image, likes, title } = data;
+
+        return (
+          <Box className={styles.cardDiv}>
+            <Card sx={{ borderRadius: "10px" }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="170"
+                  image={image}
+                  alt="song"
+                />
+                <CardContent sx={{ padding: "5px" }}>
+                  <Chip
+                    size="small"
+                    label={`${likes} likes`}
+                    sx={{ bgcolor: "black", color: "white" }}
+                  />
+                </CardContent>
+              </CardActionArea>
+            </Card>
+            <Box className={styles.title}>
+              <p>{title}</p>
+            </Box>
+          </Box>
+        );
+      }
+
+      default:
+        <></>;
+    }
+  };
+
+  return getCard(type);
+};
+
+export default MainCard;
