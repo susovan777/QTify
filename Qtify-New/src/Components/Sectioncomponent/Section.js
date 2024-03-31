@@ -32,7 +32,6 @@ const Section = ({
             {!carouselToggle ? "Collapse all" : "Show all"}
           </h4>
         )}
-
       </div>
 
       {type === "song" ? (
