@@ -57,7 +57,7 @@ export const MainCard = ({ data, type }) => {
 
         return (
           <div>
-            <Tooltip title={`${songs.length} ss`} placement="top" arrow>
+            <Tooltip title={`${songs.length} songs`} placement="top" arrow>
               <Box className={styles.cardDiv}>
                 <Card sx={{ borderRadius: "10px" }}>
                   <CardActionArea>

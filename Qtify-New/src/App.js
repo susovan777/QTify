@@ -12,6 +12,7 @@ import "./App.css";
 function App() {
   const [data, setData] = useState({});
   const [value, setValue] = useState(0);
+  const { topAlbums = [], newAlbums = [], songs = [] } = data;
   // const [songData, setSongData] = useState([]);
   // const [filteredDataValues, setFilteredDataValues] = useState([]);
 
@@ -60,8 +61,9 @@ function App() {
     generateFetchedData("songs", fetchSongs);
   }, []);
 
-  const { topAlbums, newAlbums, songs } = data;
-
+  
+  console.log(topAlbums, newAlbums, songs);
+  
   return (
     <div>
       <Navbar />
